@@ -1,5 +1,10 @@
 pipeline {
     agent any
+
+    environment {
+        USER_DOCKERHUB_CREDENTIALS = credentials('dockerhub-credentials')
+    }
+
     stages {
 
         stage('Build test delivery') {
@@ -21,8 +26,10 @@ pipeline {
             agent any
             steps {
                 unstash 'jar'
-                sh 'docker build -t hamer123/simple-java-maven-app .'
-                sh 'docker push hamer123/simple-java-maven-app'
+                sh 'echo $USER_DOCKERHUB_CREDENTIALS_USR'
+                sh 'echo $USER_DOCKERHUB_CREDENTIALS_PSW'
+//                sh 'docker build -t hamer123/simple-java-maven-app .'
+//                sh 'docker push hamer123/simple-java-maven-app'
             }
         }
     }
