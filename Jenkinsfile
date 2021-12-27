@@ -22,7 +22,8 @@ pipeline {
             steps {
                 unstash 'jar'
                 sh 'ls'
-                sh 'ls /target'
+                sh 'cd target'
+                sh 'ls'
                 sh 'docker ps'
             }
         }
