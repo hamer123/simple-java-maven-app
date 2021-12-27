@@ -26,10 +26,9 @@ pipeline {
             agent any
             steps {
                 unstash 'jar'
-                sh 'echo $USER_DOCKERHUB_CREDENTIALS_USR'
-                sh 'echo $USER_DOCKERHUB_CREDENTIALS_PSW'
-//                sh 'docker build -t hamer123/simple-java-maven-app .'
-//                sh 'docker push hamer123/simple-java-maven-app'
+                sh 'docker build -t hamer123/simple-java-maven-app .'
+                sh 'docker login -u $USER_DOCKERHUB_CREDENTIALS_USR -p $USER_DOCKERHUB_CREDENTIALS_PSW'
+                sh 'docker push hamer123/simple-java-maven-app'
             }
         }
     }
