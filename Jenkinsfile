@@ -26,5 +26,11 @@ pipeline {
                 sh './jenkins/scripts/deliver.sh'
             }
         }
+
+        stage('Check docker') {
+            steps {
+                sh 'docker ps'
+            }
+        }
     }
 }
