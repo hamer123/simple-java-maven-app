@@ -22,7 +22,6 @@ pipeline {
             steps {
                 unstash 'jar'
                 sh 'docker build -t hamer123/simple-java-maven-app .'
-
                 sh 'docker push hamer123/simple-java-maven-app'
             }
         }
