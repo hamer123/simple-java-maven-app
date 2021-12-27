@@ -21,9 +21,8 @@ pipeline {
             agent any
             steps {
                 unstash 'jar'
-                sh 'ls'
-                sh 'ls target'
-                sh 'docker ps'
+                sh 'docker build -t simple-java-maven-app .'
+                sh 'docker run simple-java-maven-app test'
             }
         }
     }
