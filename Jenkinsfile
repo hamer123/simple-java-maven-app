@@ -10,7 +10,7 @@ pipeline {
         stage('Build test delivery') {
             agent {
                 docker {
-                    image 'maven:3-alpine'
+                    image 'adoptopenjdk/maven-openjdk11'
                     args '-v /root/.m2:/root/.m2'
                 }
             }
