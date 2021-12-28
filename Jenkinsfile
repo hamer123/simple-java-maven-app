@@ -17,7 +17,6 @@ pipeline {
             steps {
                 sh 'mvn -B -DskipTests clean package'
                 sh 'mvn test'
-                sh './jenkins/scripts/deliver.sh'
                 stash name: 'jar', includes: '**/*.jar'
             }
         }
@@ -29,6 +28,20 @@ pipeline {
                 sh 'docker build -t hamer123/simple-java-maven-app .'
                 sh 'docker login -u $USER_DOCKERHUB_CREDENTIALS_USR -p $USER_DOCKERHUB_CREDENTIALS_PSW'
                 sh 'docker push hamer123/simple-java-maven-app'
+            }
+        }
+
+        stage('Deploy to k8s') {
+            agent any
+            steps {
+                sh 'kubectl get pods'
+            }
+        }
+
+        stage('Deploy to k8s via helm') {
+            agent any
+            steps {
+                sh 'helm list'
             }
         }
     }
