@@ -34,7 +34,7 @@ pipeline {
         stage('Deploy to k8s') {
             agent any
             steps {
-                sh 'kubectl get pods'
+                sh 'kubectl apply -f deployment.yaml'
             }
         }
 
