@@ -34,6 +34,7 @@ pipeline {
         stage('Deploy to k8s') {
             agent any
             steps {
+                sh 'kubectl delete -f deployment.yaml'
                 sh 'kubectl apply -f deployment.yaml'
             }
         }
