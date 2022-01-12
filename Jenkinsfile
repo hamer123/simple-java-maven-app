@@ -43,8 +43,10 @@ pipeline {
             agent any
             steps {
                 sh 'helm list'
-                def test = 'test'
-                echo test
+                script {
+                    def test = 'test'
+                    sh 'echo ${test}'
+                }
             }
         }
     }
