@@ -46,8 +46,9 @@ pipeline {
 
                 script {
                     def datas = readYaml file: 'deployment.yaml'
-                    def test = 'test'
-                    echo '${test}'
+                    def test = 'test echo!'
+                    echo test
+                    println test
                 }
             }
         }
