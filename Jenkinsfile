@@ -43,9 +43,11 @@ pipeline {
             agent any
             steps {
                 sh 'helm list'
+
                 script {
+                    def datas = readYaml file: 'deployment.yaml'
                     def test = 'test'
-                    sh 'echo ${test}'
+                    echo '${test}'
                 }
             }
         }
