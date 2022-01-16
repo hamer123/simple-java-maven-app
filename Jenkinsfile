@@ -49,6 +49,8 @@ pipeline {
                     def test = 'test echo!'
                     echo test
                     println test
+
+                    echo datas.apiVersion
                 }
             }
         }
