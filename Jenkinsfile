@@ -50,7 +50,7 @@ pipeline {
                     echo test
                     println test
 
-                    echo datas.apiVersion
+                    println datas.apiVersion
                 }
             }
         }
