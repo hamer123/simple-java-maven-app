@@ -14,29 +14,29 @@ pipeline {
                     args '-v /root/.m2:/root/.m2'
                 }
             }
-            steps {
-                sh 'mvn -B -DskipTests clean package'
-                sh 'mvn test'
-                stash name: 'jar', includes: '**/*.jar'
-            }
+//            steps {
+//                sh 'mvn -B -DskipTests clean package'
+//                sh 'mvn test'
+//                stash name: 'jar', includes: '**/*.jar'
+//            }
         }
 
         stage('build docker image') {
             agent any
-            steps {
+//            steps {
 //                unstash 'jar'
 //                sh 'docker build -t hamer123/simple-java-maven-app .'
 //                sh 'docker login -u $USER_DOCKERHUB_CREDENTIALS_USR -p $USER_DOCKERHUB_CREDENTIALS_PSW'
 //                sh 'docker push hamer123/simple-java-maven-app'
-            }
+//            }
         }
 
         stage('Deploy to k8s') {
             agent any
-            steps {
+//            steps {
 //                sh 'kubectl delete -f deployment.yaml'
 //                sh 'kubectl apply -f deployment.yaml'
-            }
+//            }
         }
 
         stage('Deploy to k8s via helm') {
