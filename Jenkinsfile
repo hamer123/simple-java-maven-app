@@ -45,7 +45,7 @@ pipeline {
                 sh 'helm list'
 
                 script {
-                    def datas = readYaml file: 'deployment.yaml'
+                    def datas = readYaml file: 'helm/templates/simple-java-app-deployment.yaml/deployment.yaml'
                     def test = 'test echo!'
                     echo test
                     println test
