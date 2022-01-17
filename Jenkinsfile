@@ -51,8 +51,10 @@ pipeline {
                     def datas = readYaml file: 'helm/templates/simple-java-app-deployment.yaml'
                     datas.apiVersion = 'apps/v2'
 
+                    def pom = readMavenPom file: 'pom.xml'
+
                     println datas.apiVersion
-                    println ${POM_VERSION}
+                    println pom.version
                 }
             }
         }
