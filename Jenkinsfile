@@ -49,9 +49,7 @@ pipeline {
 
                 script {
                     def datas = readYaml file: 'helm/templates/simple-java-app-deployment.yaml'
-                    def test = 'test echo!'
-                    echo test
-                    println test
+                    datas.apiVersion = 'apps/v2'
 
                     println datas.apiVersion
                 }
