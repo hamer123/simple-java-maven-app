@@ -24,18 +24,18 @@ pipeline {
         stage('build docker image') {
             agent any
             steps {
-                unstash 'jar'
-                sh 'docker build -t hamer123/simple-java-maven-app .'
-                sh 'docker login -u $USER_DOCKERHUB_CREDENTIALS_USR -p $USER_DOCKERHUB_CREDENTIALS_PSW'
-                sh 'docker push hamer123/simple-java-maven-app'
+//                unstash 'jar'
+//                sh 'docker build -t hamer123/simple-java-maven-app .'
+//                sh 'docker login -u $USER_DOCKERHUB_CREDENTIALS_USR -p $USER_DOCKERHUB_CREDENTIALS_PSW'
+//                sh 'docker push hamer123/simple-java-maven-app'
             }
         }
 
         stage('Deploy to k8s') {
             agent any
             steps {
-                sh 'kubectl delete -f deployment.yaml'
-                sh 'kubectl apply -f deployment.yaml'
+//                sh 'kubectl delete -f deployment.yaml'
+//                sh 'kubectl apply -f deployment.yaml'
             }
         }
 
