@@ -52,6 +52,7 @@ pipeline {
                     datas.apiVersion = 'apps/v2'
 
                     println datas.apiVersion
+                    println ${POM_VERSION}
                 }
             }
         }
